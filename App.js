@@ -1,10 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+
+  const [backgroundColor, setBackgroundColor] = useState('black');
+  
+
+  const logPress = () => {
+    console.log('Button Pressed!')
+  }
+
+  const handlePress = () => {
+    setBackgroundColor('red');
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Hello World</Text>
+      <Button title="Press" color={backgroundColor} onPress={() => {logPress(); handlePress();}} />
       <StatusBar style="auto" />
     </View>
   );
